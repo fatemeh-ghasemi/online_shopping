@@ -1,0 +1,13 @@
+{% extends "layout.html.twig" %}
+{% block content %}
+    {% if msg is not empty %}
+
+        <strong style="color: red">{{msg}}</strong>
+    {% endif %}
+    <form action="" method="post">
+        <label>Email : <input type="text" name="email"></label><br>
+        <label>Password : <input type="password" name="password"></label><br>
+        <label>Remember me : <input type="checkbox" name="remember"></label><br>
+        <input type="submit" value="Log in">
+    </form>
+{% endblock %}   
