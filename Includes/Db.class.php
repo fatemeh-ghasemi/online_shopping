@@ -15,9 +15,9 @@ class Db {
     static function get() {
         if (self::$db === NULL) {
             self::$db = new MyMySqli("localhost", "root", "", "shopping");
-            return self::$db;
+            self ::$db->query("SET NAMES 'utf8'");
         }
+            return self::$db;
     }
-  
-    }
-  
+
+}

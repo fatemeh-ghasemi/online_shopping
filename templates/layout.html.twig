@@ -6,14 +6,21 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
-    <body>
+    <body style="direction: rtl">
         <div>
-            <h1>Header</h1>
+            {% block menu %}
+                <a href="login.php"> ورود به سایت </a><br>
+                <a href="register.php"> ثبت نام</a><br>
+            {% endblock %}
         </div>
         <div>
+            {% for m in messages %}
+                <div> {{m}} </div>
+            {% endfor %}
+            
             {% block content %}
-                
-                {% endblock %}    
+
+            {% endblock %}    
         </div>
     </body>
 </html>
