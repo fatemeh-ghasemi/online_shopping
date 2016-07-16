@@ -1,0 +1,11 @@
+{% extends "layout.html.twig" %}
+{% block content %}
+
+    <div><h4>نام محصول:</h4>{{product.name}}</div>
+    <div><h4>قیمت :</h4>{{product.price}}</div>
+    <div><h4>تعداد :</h4>{{product.quantity}}</div>
+    <div><h4>توضیحات :</h4>{{product.describtion}}</div>
+    <div><h4>دسته : {{category.name}}</h4></div>
+    <a href="add2cart.php?id={{product.id}}">خرید</a>
+  
+{% endblock %}   

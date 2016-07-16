@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Shop</title>
+        <meta charset="UTF-8">
+        <link href="{{path}}/css/global.css" rel="stylesheet" type="text/css"/>
+    </head>
+    <body style="direction: rtl">
+        <div>
+            {% for m in messages %}
+                <div> {{m}} </div>
+            {% endfor %}
+            {% block menu %}
+                <a href="{{path}}/admin/products/index.php">محصولات</a>
+                <a href="{{path}}/admin/products/add-product.php">افزودن محصول</a>
+                <a href="{{path}}/admin/products/add-category.php"> افزودن دسته </a>
+                <a href="{{path}}/admin/products/category-list.php">لیست دسته ها</a>
+            {% endblock %}
+        </div>
+        <div>
+            {% block content %}
+
+            {% endblock %}    
+        </div>
+    </body>
+</html>

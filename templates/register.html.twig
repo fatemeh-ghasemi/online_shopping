@@ -1,7 +1,7 @@
 {% extends "layout.html.twig" %}
 {% block content %}
-    {% if msg is not empty %}
-
+    {% if messages is not empty %}
+        {{messages}}
     {% endif %}
     
     <form action="" method="post">

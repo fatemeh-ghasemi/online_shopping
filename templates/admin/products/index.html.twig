@@ -1,0 +1,32 @@
+{% extends "admin/layout.html.twig" %}
+{% block content %}
+
+    <table border="1">
+        <tr>
+            <th>#</th>
+            <th>نام محصول</th>
+            <th>قیمت</th>
+            <th>تعداد</th>
+            <th>توضیحات</th>
+            <th>عکس</th>
+        </tr>
+        {% for p in products %}
+            <tr>
+                <td>{{loop.index}}</td>
+                <td><a href="{{path}}/admin/products/view.php?id={{p.id}}">{{p.name}}</a></td>
+                <td>{{p.price}}</td>
+                <td>{{p.quantity}}</td>
+                <td>{{p.describtion}}</td>
+                <td>
+                    {% for pic in picture %}
+                        {% if pic.product_id==p.id %}
+                            <img src="{{path}}/product_images/{{pic.name}}" >
+                        {% endif %}
+                    {% endfor %}
+
+
+                </td>
+            </tr>
+        {% endfor %}   
+    </table>   
+{% endblock %}   

@@ -1,0 +1,117 @@
+.prd{
+    border: solid 1px black;
+    float: right;
+    margin: 5px;
+
+    width: 400px;
+    text-align: center;
+}
+
+a{
+    display: inline-block;
+    padding: 10px;
+    text-decoration: none; 
+}
+
+body,ul{
+    padding:0;
+    margin:0;
+    list-style:none;
+    font-family:'Letter Gothic Std';
+}
+li{
+    float:left;
+    text-align:center;
+    padding:20px;
+}
+
+ul#menu li{
+    font-size:13px;
+    padding-top:5px;
+}
+ul#sub-menu{
+     background-color:#191919;
+     height:70px;
+}
+
+ul#sub-menu li{
+    font-size:20px;
+    cursor:pointer;
+}
+ul#sub-menu li:first-child{
+    padding-left:330px;
+}
+a{
+   text-decoration:none;
+   color:#888888;
+}
+ul#sub-menu li:hover a{
+    color:white;
+}
+ul#menu li:hover a{
+    color:black;
+}
+header > div{
+    height:150px;
+}
+header > div> img{
+    float:left;
+    padding-top:30px;
+    padding-left:50px;
+}
+#search{
+    position:absolute;
+    left:50px;
+    top:20px;
+    transition:all 1.5s ease;
+}
+header >div >input{
+    width:0px;
+    height:50px;
+    background-color:white;
+    color:black;
+    font-size:30px;
+    position:absolute;
+    transition:all 1.5s ease;
+    border:solid 0px black;
+    font-style:normal;
+}
+#shopping{
+    width:32px;
+    height:32px;
+    position:absolute;
+    right:50px;
+    top:25px;
+}
+#close{
+    width:0;
+    height:16px;
+    position:absolute;
+    right:65px;
+    top:25px;
+}
+body{
+	background-color: white;
+    overflow-x:hidden;
+}
+
+.SliderNamePrev_2 {
+	background: url(../img/left.png) no-repeat left center;
+	width: 50px;
+	height:800px;
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 0;
+	text-decoration: none;
+}
+.SliderNameNext_2 {
+	background: url(../img/right.png) no-repeat right center;
+	width: 50px;
+	height: 800px;
+	display: block;
+	position: absolute;
+	top: 0;
+	right: 0;
+	text-decoration: none;
+}

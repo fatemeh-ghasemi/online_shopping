@@ -1,0 +1,18 @@
+{% extends "layout.html.twig" %}
+{% block content %}
+
+    {% for p in products %}
+
+        <div class="prd">
+            <h3>{{p.name}}</h3>
+            <p>{{p.price}}</p>
+            {% for pic in picture %}
+                {% if pic.product_id==p.id %}
+                    <img src="{{path}}/product_images/{{pic.name}}" >
+                {% endif %}
+            {% endfor %}
+            <a href="add2cart.php?id={{p.id}}">خرید</a>
+            <a href="properties.php?id={{p.id}}">مشاهده جزییات</a>
+        </div>
+    {% endfor %}
+{% endblock %}  

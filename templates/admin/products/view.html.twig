@@ -1,0 +1,10 @@
+{% extends "admin/layout.html.twig" %}
+{% block content %}
+
+    <div><h4>نام محصول:</h4>{{product.name}}</div>
+    <div><h4>قیمت :</h4>{{product.price}}</div>
+    <div><h4>تعداد :</h4>{{product.quantity}}</div>
+    <div><h4>توضیحات :</h4>{{product.describtion}}</div>
+    <div><img src="{{path}}/product_images/{{pic}}" ></div>
+    
+{% endblock %}   

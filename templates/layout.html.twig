@@ -4,23 +4,70 @@
     <head>
         <title>Shop</title>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="{{path}}/css/global.css" rel="stylesheet" type="text/css"/>
+        <script src="js/jquery-2.1.4.js"></script>
+        <script src="js/sliderman.1.3.8.js"></script>
+        <script src="js/JS.js"></script>
     </head>
-    <body style="direction: rtl">
-        <div>
+    <body>
+        <header>
+            <nav>
+                <ul id="menu">
+                    <li><a href="index.php">HOME</a></li>
+                    <li><a href="login.php">Sign in</a></li>
+                    <li><a href="register.php">Register</a></li>
+                    <li><a href="logout.php">Sign out</a></li>
+                </ul>
+            </nav>
+            <div id="head">
+                <img src="img/shopping231.png" id="shopping" />
+                <img src="img/magnifying-glass34(1).png" id="search" />
+                <img src="img/logo.png" id="jewel" />
+                <input type="text" placeholder="search..." />
+            </div>
+            <nav>
+                <ul id="sub-menu">
+                    <li><a href="ring.php" target="_blank">RINGS</a></li>
+                    <li><a href="bracelet.php" target="_blank">BRACELETS</a></li>
+                    <li><a href="brooch.php" target="_blank">BROOCHES</a></li>
+                    <li><a href="earring.php" target="_blank">EARRINGS</a></li>
+                    <li><a href="necklace.php" target="_blank">NECKLACES</a></li>
+                </ul>
+            </nav>
+        </header>
+        <section>
+            {% block content %}
+            <div id="SliderName_2" class="SliderName_2">
+                <img src="img/2.jpg"/>
+                <img src="img/4.jpg"/>
+                <img src="img/1.jpg"/>
+                <img src="img/3.jpg"/>
+                <img src="img/5.jpg"/>
+            </div>
+            <div id="SliderNameNavigation_2"></div>
+            {% endblock %}
+        </section>
+        {#<div>
+            {% if cart.get_item_count>0 %}
+                <a href="{{path}}/cart.php">  Cart  : {{cart.get_item_count}}</a>
+            {% endif %}   
             {% block menu %}
-                <a href="login.php"> ورود به سایت </a><br>
-                <a href="register.php"> ثبت نام</a><br>
+                <a href="login.php"> ورود به سایت </a>
+                <a href="register.php"> ثبت نام</a>
+                {% if user is defined %}
+                    <a href="logout.php">خروج</a>
+                {% endif %}
+                <a href="Admin/index.php">Admin Page</a>
             {% endblock %}
         </div>
         <div>
             {% for m in messages %}
                 <div> {{m}} </div>
             {% endfor %}
-            
+
             {% block content %}
 
             {% endblock %}    
-        </div>
+        </div>#}
     </body>
 </html>

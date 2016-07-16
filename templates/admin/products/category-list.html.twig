@@ -1,0 +1,16 @@
+{% extends "admin/layout.html.twig" %}
+{% block content %}
+
+    <table border="1">
+        <tr>
+            <th>#</th>
+            <th>نام دسته</th>
+        </tr>
+        {% for c in categories %}
+            <tr>
+                <td>{{loop.index}}</td>
+                <td>{{c.name}}</td>
+            </tr>
+        {% endfor %}   
+    </table>   
+{% endblock %}   

@@ -1,7 +1,6 @@
 <?php
 
 require './Includes/init.php';
-$msg="";
 if($_SERVER['REQUEST_METHOD'] == "POST"){
     
     $register=new Register();
@@ -12,13 +11,13 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
     $password=  Db::get()->real_escape_string($_POST['password']);
     try{
     $register->add_new_user($fname, $lname, $email, $password);
-    $msg ='ثبتنام کامل شد';
+    add_flash_message( 'ثبتنام کامل شد');
     }  catch (Exception $e){
-        if($e->getCode() == 1062){
-            $msg = 'ایمیل تکراری هست. ';
+        if($e->getCode() == 1062)
+            {
+            add_flash_message('ایمیل تکراری هست. ');
         }
     }
-    echo $msg;
     }
 
-echo $twig->render('register.html.twig', array('msg' => $msg));
+echo $twig->render('register.html.twig', array());

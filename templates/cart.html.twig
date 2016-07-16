@@ -1,0 +1,46 @@
+{% extends "layout.html.twig" %}
+{% block content %}
+
+    <table border="1">
+        <tr>
+            <th>#</th>
+            <th>نام محصول</th>
+            <th>قیمت واحد</th>
+            <th>تعداد</th>
+            <th>قیمت مجموع</th>
+        </tr>
+        {% set totalprice=0 %}
+
+            {% for c in cart %}
+                <tr>
+                    <td>{{loop.index}}</td>
+                    <td>{{c.name}}</td>
+                    <td>{{c.price|number_format}}تومان </td>
+                    <td>{{c.count}}(
+                        {% if c.count < c.quantity %}
+                            <a href="add2cart.php?id={{c.id}}">+</a>
+                        {% else %}
+                            + 
+                        {% endif %}
+                        /
+                        {% if c.count > 0 %}
+                            <a href="add2cart.php?id={{c.id}}&count=-1">-</a>
+                        {% else %}
+                            -
+                        {% endif %}
+                        )
+                    </td>
+                    <td>{{(c.count * c.price)|number_format}}تومان </td>
+                </tr>
+                {% set totalprice=totalprice +(c.count * c.price) %}
+                    {% endfor %}   
+                    </table> 
+                    جمع کل  :  {{ totalprice|number_format }}تومان 
+                    <br>
+                    <br>
+                    {% if user is defined %}
+                        <a href="checkout.php">نهایی کردن فاکتور</a>
+                        {% else %}
+                            جهت تایید نهایی واردشوید.
+                    {% endif %}
+                    {% endblock %}   
