@@ -2,4 +2,4 @@
 
 require './Includes/init.php'; 
 
-echo $twig->render('index.html.twig', array());
+echo $twig->render('layout.html.twig', array());

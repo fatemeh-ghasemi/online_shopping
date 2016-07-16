@@ -6,18 +6,19 @@
         <meta charset="UTF-8">
         <link href="{{path}}/css/global.css" rel="stylesheet" type="text/css"/>
     </head>
-    <body style="direction: rtl">
+    <body>
         <div>
-            {% for m in messages %}
-                <div> {{m}} </div>
-            {% endfor %}
-            {% block menu %}
-                <a href="{{path}}/admin/products/index.php">محصولات</a>
-                <a href="{{path}}/admin/products/add-product.php">افزودن محصول</a>
-                <a href="{{path}}/admin/products/add-category.php"> افزودن دسته </a>
-                <a href="{{path}}/admin/products/category-list.php">لیست دسته ها</a>
-            {% endblock %}
+            <img src="{{path}}/img/logo.png" id="pic" />
         </div>
+        <nav>           
+            <ul id="sub-menu">
+                <li><a href="{{path}}/index.php" target="_blank">HOME</a></li>
+                <li><a href="{{path}}/admin/products/index.php" target="_blank">PRODUCTS</a></li>
+                <li><a href="{{path}}/admin/products/add-product.php" target="_blank">ADD PRODUCT</a></li>
+                <li><a href="{{path}}/admin/products/category-list.php" target="_blank">CATEGORIES</a></li>
+                <li><a href="{{path}}/admin/products/add-category.php" target="_blank">ADD CATEGORIES</a></li>
+            </ul>
+        </nav>
         <div>
             {% block content %}
 
@@ -25,3 +26,20 @@
         </div>
     </body>
 </html>
+
+{# <div>
+     {% for m in messages %}
+         <div> {{m}} </div>
+     {% endfor %}
+     {% block menu %}
+         <a href="{{path}}/admin/products/index.php">محصولات</a>
+         <a href="{{path}}/admin/products/add-product.php">افزودن محصول</a>
+         <a href="{{path}}/admin/products/add-category.php"> افزودن دسته </a>
+         <a href="{{path}}/admin/products/category-list.php">لیست دسته ها</a>
+     {% endblock %}
+ </div>
+ <div>
+     {% block content %}
+
+     {% endblock %}    
+ </div>#}
