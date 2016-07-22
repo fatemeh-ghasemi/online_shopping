@@ -1,100 +1,25 @@
-.prd{
-    border: solid 1px black;
-    float: right;
-    margin: 5px;
-
-    width: 400px;
-    text-align: center;
+body,h3{
+    font-family:'Letter Gothic Std';
+    padding: 0;
+    margin: 0;
 }
-
 a{
     display: inline-block;
     padding: 3px;
     text-decoration: none; 
 }
-
-body,ul{
-    padding:0;
-    margin:0;
-    list-style:none;
-    font-family:'Letter Gothic Std';
+#pic{
+    display: block;
+    width: 350px;
+    margin: 10px auto;
 }
 li{
-    float:left;
-    text-align:center;
-    padding:20px;
-}
-
-ul#menu li{
-    font-size:13px;
-    padding-top:5px;
-}
-ul#sub-menu{
-     background-color:#191919;
-     height:70px;
-}
-
-ul#sub-menu li{
-    font-size:20px;
+    padding:10px;
     cursor:pointer;
 }
-ul#sub-menu li:first-child{
-    padding-left:330px;
+#SliderName_2{
+    margin-bottom: 0;
 }
-a{
-   text-decoration:none;
-   color:#888888;
-}
-ul#sub-menu li:hover a{
-    color:white;
-}
-ul#menu li:hover a{
-    color:black;
-}
-header > div{
-    height:150px;
-}
-header > div> img{
-    float:left;
-    padding-top:30px;
-    padding-left:50px;
-}
-#search{
-    position:absolute;
-    left:50px;
-    top:20px;
-    transition:all 1.5s ease;
-}
-header >div >input{
-    width:0px;
-    height:50px;
-    background-color:white;
-    color:black;
-    font-size:30px;
-    position:absolute;
-    transition:all 1.5s ease;
-    border:solid 0px black;
-    font-style:normal;
-}
-#shopping{
-    width:32px;
-    height:32px;
-    position:absolute;
-    right:50px;
-    top:25px;
-}
-#close{
-    width:0;
-    height:16px;
-    position:absolute;
-    right:65px;
-    top:25px;
-}
-body{
-	background-color: white;
-    overflow-x:hidden;
-}
-
 .SliderNamePrev_2 {
 	background: url(../img/left.png) no-repeat left center;
 	width: 50px;
@@ -115,7 +40,88 @@ body{
 	right: 0;
 	text-decoration: none;
 }
-#pic{
-    display: block;
+#SliderNameNavigation_2{
+   height: 10px;
+   background-color: #eee;
+}
+form{
+    width: 500px; 
+    background-color: #eee;
+    padding: 10px;
+    padding-top: 20px;
+    border-radius: 4%;
     margin: 20px auto;
+}
+.danger{
+    width: 300px;
+    text-align: center;
+    margin: 5px auto;
+}
+table{
+    width: 800px;
+    margin: 20px auto;
+}
+div.panel-body section{
+    float:left;
+    width:220px;
+    height: 280px;
+    background-color: #eee;
+}
+div.panel-body section>img{
+    margin: 5px;
+}
+div.panel-body section button{
+    margin-top: 4px;
+    margin-left: 8px;
+    border-color: black;
+}
+div.panel-body section h3{
+    text-align: center;
+    color:#888;
+    margin: 30px auto;
+}
+div.panel-body section h4{
+    text-align: center;
+    color:#888;
+    margin: 20px auto;
+}
+.second a{
+    display: block;
+    margin-top:30px;
+    margin-left: 91px;
+}
+.second span{
+    display: block;
+    margin: 2px auto;
+    width: 40px;
+}
+div.container > div.panel{
+    float: left;
+    margin: 45px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+div#pagination{
+    text-align: center;
+    width: 500px;
+    margin: 10px auto;
+}
+#pagination a{
+    text-align: center;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background-color: #ccc;
+    border: solid 1px black;
+    color: black;
+}
+#popular{
+    width: 1100px;
+    background-color:#f7f9fa;
+    margin: auto;
+    margin-bottom: 10px;
+    padding: 10px;
+    text-align: center;
+    margin-top: 0;
+    border-radius: 10px;
 }

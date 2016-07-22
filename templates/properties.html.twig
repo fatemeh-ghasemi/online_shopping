@@ -1,11 +1,39 @@
 {% extends "layout.html.twig" %}
 {% block content %}
 
-    <div><h4>نام محصول:</h4>{{product.name}}</div>
-    <div><h4>قیمت :</h4>{{product.price}}</div>
-    <div><h4>تعداد :</h4>{{product.quantity}}</div>
-    <div><h4>توضیحات :</h4>{{product.describtion}}</div>
-    <div><h4>دسته : {{category.name}}</h4></div>
-    <a href="add2cart.php?id={{product.id}}">خرید</a>
-  
+    <table class="table table-hover">
+        <tr>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Count</th>
+            <th>Describtion</th>
+            <th>Category</th>
+            <th>Add to cart</th>
+            <th>Picture</th>
+        </tr>
+        <tr>
+            <td>{{product.name}}</td>
+            <td>{{product.price}}</td>
+            <td>{{product.quantity}}</td>
+            <td width="60px;">{{product.describtion}}</td>
+            <td>{{category_name}}</td>
+            <td><a href="add2cart.php?id={{product.id}}"><span class="glyphicon glyphicon-shopping-cart"></span></a></td>
+            <td>
+                <img src="{{path}}/product_images/{{product.picname}}"  class="img-thumbnail"  width="150" height="130">
+            </td>
+        </tr>
+    </table>
+    <div class="container">
+        {% for c in comment %}
+            <div class="panel panel-default" style="width: 800px; background-color: #eee;">
+                <div class="panel-body">
+                    <div><h5 style="display: inline; color: black; font-size: 18px;">  Write by : </h5><i>{{c.firstname}}_{{c.lastname}}</i></div><br>
+                    <div style="margin-left: 50px;">{{c.body}}</div><br>
+                    <div>{{c.time}}</div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
 {% endblock %}   
+{% block slider %}
+{% endblock %}

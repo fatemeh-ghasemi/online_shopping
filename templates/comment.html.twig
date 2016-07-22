@@ -1,0 +1,14 @@
+{% extends "layout.html.twig" %}
+{% block content %}
+     {% if messages is not empty %}
+        
+        <strong style="color: red">{{messages}}</strong>
+    {% endif %}
+    <form action="" method="post">
+        <label>comment :<textarea name="comment"></textarea> </label><br>
+        <input type="submit" value="submit">
+    </form>
+{% endblock %}
+
+{% block menu %}
+    {% endblock %}

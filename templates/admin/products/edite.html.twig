@@ -1,0 +1,50 @@
+{% extends "admin/layout.html.twig" %}
+{% block content %}
+    {% set selected="" %}
+        <div>
+            <form action="" method="post" role="form" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label for="pname">Product name:</label>
+                    <input type="text"  name="name" class="form-control" id="pname" value="{{product.name}}">
+                </div>
+                <div class="form-group">
+                    <label for="pr">Price:</label>
+                    <input type="text"  name="price" class="form-control" id="pr" value="{{product.price}}">
+                </div>
+                <div class="form-group">
+                    <label for="count">Quantity:</label>
+                    <input type="number"  name="count" class="form-control" id="count" value="{{product.quantity}}">
+                </div>
+                <div class="form-group">
+                    <label for="serial">Serial Number:</label>
+                    <input type="text"  name="serialnumber" class="form-control" id="serial" value="{{product.serialnumber}}">
+                </div>
+                <div class="form-group">
+                    <label for="des">Describtion :</label>
+                    <textarea rows="5"name="describe" class="form-control"  id="des">{{product.describtion}}</textarea>        
+                </div>
+                <div class="form-group">
+                    <label for="cat">Category : </label>
+                    <select name="status" id="cat" class="form-control">
+                        <option>visible</option>
+                        <option>invisible</option>
+                    </select>     
+                </div>
+                <div class="form-group">
+                    <label for="cat">Category : </label>
+                    <select name="category_name" id="cat" class="form-control">
+                        {% for c in category %}
+                            {% if c.id==product.category_id %}
+                                {% set selected="selected=' ' " %}
+                                    {% endif %}
+                                        <option {{selected}}>{{c.name}}</option>
+                                        {% endfor %}   
+                                        </select>     
+                                    </div>
+                                    <div>
+                                        <img src="{{path}}/product_images/{{product.picname}}"  class="img-thumbnail"  width="150" height="130">
+                                    </div>
+                                    <button type="submit" class="btn btn-default">Submit</button>
+                                </form>
+                            </div>
+                            {% endblock %}   

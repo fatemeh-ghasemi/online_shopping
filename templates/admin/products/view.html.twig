@@ -1,10 +1,29 @@
 {% extends "admin/layout.html.twig" %}
 {% block content %}
 
-    <div><h4>نام محصول:</h4>{{product.name}}</div>
-    <div><h4>قیمت :</h4>{{product.price}}</div>
-    <div><h4>تعداد :</h4>{{product.quantity}}</div>
-    <div><h4>توضیحات :</h4>{{product.describtion}}</div>
-    <div><img src="{{path}}/product_images/{{pic}}" ></div>
-    
-{% endblock %}   
+    <table class="table table-hover">
+        <tr>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Count</th>
+            <th>Describtion</th>
+            <th>Status</th>
+            <th>Edite</th>
+            <th>Delete</th>
+            <th>Picture</th>
+        </tr>
+        <tr>
+            <td>{{product.name}}</td>
+            <td>{{product.price}}</td>
+            <td>{{product.quantity}}</td>
+            <td>{{product.describtion}}</td>
+            <td>{{product.status}}</td>
+            <td><a href="edite.php?id={{product.id}}"><span class="glyphicon glyphicon-edit"></a></span></td>
+            <td><a href="delete.php?id={{product.id}}"><span class="glyphicon glyphicon-trash"></a></span></td>
+            <td>
+                <img src="{{path}}/product_images/{{product.picname}}"  class="img-thumbnail"  width="150" height="130">
+            </td>
+        </tr>
+    </table>
+
+    {% endblock %}   

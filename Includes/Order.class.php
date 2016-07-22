@@ -8,14 +8,17 @@ class Order {
 
         $items = $cart->get();
         foreach ($items as $item) {
-            $this->createOrderItem($id, $item);
+            $this->  create_order_item($id, $item);
         }
 
         return $id;
     }
 
     public function create_order_item($orderId, $item) {
-        Db::get()->query("INSERT INTO `order_item` SET order_id=$orderId, product_id=$item[id], count=$item[count],price=$item[price]");
+        $id=$item['id'];
+        $count=$item['count'];
+        $price=$item['price'];
+        Db::get()->query("INSERT INTO order_item SET order_id='$orderId' , product_id=$id, count=$count,price=$price");
     }
 
 }

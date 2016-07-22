@@ -1,0 +1,38 @@
+{% extends "admin/layout.html.twig" %}
+{% block content %}
+    <table class="table table-hover">
+        <tr>
+            <th>#</th>
+            <th>Picture</th>
+            <th>User</th>
+            <th>Comment</th>
+            <th>Status</th>
+        </tr>
+        {% for c in comment %}
+            <tr>
+                <td>{{loop.index}}</td>
+                <td><img src="{{path}}/product_images/{{c.picname}}"  class="img-thumbnail"  width="150" height="130"></td>
+                <td>{{c.firstname}}_{{c.lastname}}</td>
+                <td>{{c.comment}}</td>
+                <td>
+                    <form method="POST" action="" role="form">
+                        <div class="radio">
+                            <label><input type="radio" name="optradio" value="waiting">waiting</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="optradio" value="approved">approved</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="optradio" value="reject">reject</label>
+                        </div>
+                        <input type="hidden" value="{{c.id}}" name="cid">
+                        <input type="submit" value="Set" >
+                    </form>
+                </td>
+                <td>
+
+                </td>
+            </tr>
+        {% endfor %}   
+    </table> 
+{% endblock %}   

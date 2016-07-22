@@ -1,18 +1,32 @@
 {% extends "layout.html.twig" %}
 {% block content %}
-    
-    {% for p in products %}
+    <div class="container">
+        {% for p in products %}
+            <div class="panel panel-default" style="width: 480px;">
+                <div class="panel-body">
+                    <section id="first">
+                        <img src="{{path}}/product_images/{{p.picname}}"  class="img-thumbnail" height="150px" >
+                        <a href="add2cart.php?id={{p.id}}"><button type="button" class="btn btn-default">Add to cart</button></a>
+                        <a href="properties.php?id={{p.id}}"><button type="button" class="btn btn-default">Properties</button></a>
+                    </section>
+                    <section class="second">
+                        <h3>Name : {{p.name}}</h3>
+                        <h4>Price : {{p.price}} $</h4>
+                        <a href="like.php?id={{p.id}}"><img src="{{path}}/img/heart296(1).png" ></a>
+                        <span class="badge">{{p.like_count}}</span>
+                        <a href="comment_page.php?id={{p.id}}" style="display: block; margin-left: 50px; margin-top: 30px; border-color: black;"><button type="button" class="btn btn-default">Comment</button></a>
+                    </section>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+    <div id="pagination">
+        {% for i in 1..count %}
+            <a href="product.php?type={{type}}&p={{i}}">{{i}}</a>
+        {% endfor %}
 
-        <div class="prd">
-            <h3>{{p.name}}</h3>
-            <p>{{p.price}}</p>
-            {% for pic in picture %}
-                {% if pic.product_id==p.id %}
-                    <img src="{{path}}/product_images/{{pic.name}}" >
-                {% endif %}
-            {% endfor %}
-            <a href="add2cart.php?id={{p.id}}">خرید</a>
-            <a href="properties.php?id={{p.id}}">مشاهده جزییات</a>
-        </div>
-    {% endfor %}
+
+    </div>
 {% endblock %}  
+{% block slider %}
+{% endblock %}

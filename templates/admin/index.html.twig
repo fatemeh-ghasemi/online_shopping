@@ -5,10 +5,23 @@
 
 
 {% block content %}
-    <form action="" method="post">
-        <label>ایمیل : <input type="text" name="email"></label><br>
-        <label>رمزعبور : <input type="password" name="password"></label><br>
-        <label>به خاطر بسپار : <input type="checkbox" name="remember"></label><br>
-        <input type="submit" value="ورود">
+    <form action="" method="post" role="form">
+        <div class="form-group">
+            <label for="email">Email address:</label>
+            <input type="email"  name="email" class="form-control" id="email">
+        </div>
+        <div class="form-group">
+            <label for="pwd">Password:</label>
+            <input type="password" name="password" class="form-control" id="pwd">
+        </div>
+        <div class="form-group">
+            <label for="em">Enter code:</label>
+            <input type="text"  name="cap" class="form-control" id="em">
+        </div>
+        <img src="{{path}}/pic.php?8554">
+        <div class="checkbox">
+            <label><input type="checkbox" name="remember"> Remember me</label>
+        </div>
+        <button type="submit" class="btn btn-default">Submit</button>
     </form>
 {% endblock %}  

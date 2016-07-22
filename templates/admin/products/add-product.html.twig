@@ -1,23 +1,42 @@
 {% extends "admin/layout.html.twig" %}
 {% block content %}
-
+{% for m in messages %}
+        <div class="alert alert-danger danger"> {{m}} </div>
+    {% endfor %}
     <div>
-        <h2>لطفا فرم زیر را پر کنید :</h2>
-        <form method="POST" action="" enctype="multipart/form-data">
-            <label>نام محصول :    <input type="text" placeholder="نام محصول را وارد کنید" name="name"></label><br><br>
-            <label>قیمت :<input type="text"  placeholder="قیمت را وارد کنید" name="price"></label><br><br>
-            <label>تعداد: <input type="number"  placeholder="تعداد را وارد کنید" name="count"></label><br><br>
-            <label>شماره سریال: <input type="text"placeholder="شماره سریال را وارد کنید" name="serialnumber"></label><br><br>
-            <label>توضیحات: <textarea rows="5"name="describe"></textarea></label><br><br>          
-            <label>دسته:
-                <select name="category_name">
-                    {% for c in categories %}
+        <form action="" method="post" role="form" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="pname">Product name:</label>
+                <input type="text"  name="name" class="form-control" id="pname">
+            </div>
+            <div class="form-group">
+                <label for="pr">Price:</label>
+                <input type="text"  name="price" class="form-control" id="pr">
+            </div>
+            <div class="form-group">
+                <label for="count">Quantity:</label>
+                <input type="number"  name="count" class="form-control" id="count">
+            </div>
+            <div class="form-group">
+                <label for="serial">Serial Number:</label>
+                <input type="text"  name="serialnumber" class="form-control" id="serial">
+            </div>
+            <div class="form-group">
+                <label for="des">Describtion :</label>
+                <textarea rows="5"name="describe" class="form-control"  id="des"></textarea>        
+            </div>
+            <div class="form-group">
+                <label for="cat">Category : </label>
+                <select name="category_name" id="cat" class="form-control">
+                    {% for c in category %}
                         <option>{{c.name}}</option>
                     {% endfor %}   
-                </select>
-            </label><br><br>
-            <label>آپلود عکس :<input type="file" name="picture"></label> <br><br>   
-            <input type="submit" value="افزودن" >
+                </select>     
+            </div>
+            <div class="form-group">
+                <label for="pic">Picture : </label><input type="file" name="picture" id="pic"  class="form-control">
+            </div>
+            <button type="submit" class="btn btn-default">Submit</button>
         </form>
     </div>
 {% endblock %}   

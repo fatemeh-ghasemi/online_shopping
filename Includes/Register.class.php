@@ -18,10 +18,10 @@ class Register {
             $token=  $this->create_token($id);
             $this->save_token($id, $token);
             $url= $this->email_change_password($id ,$email, $token);
-            return $url;
+            return "Please enter this address in browser for change password : ".$url;
         }
         else{
-            return "ایمیل وجود ندارد.";
+            return "This email not exist . ";
         }
         
     }
@@ -38,8 +38,9 @@ class Register {
         
     }
     
-    public function set_password($id , $password) {
-        Db::get()->query("update user set password='$password' where id='$id' ");
+    public function set_password($id,$email , $password) {
+        $pass=  get_hash_password($email , $password);
+        Db::get()->query("update user set password='$pass' where id='$id' ");
         
     }
       public function remove_token($id , $token) {

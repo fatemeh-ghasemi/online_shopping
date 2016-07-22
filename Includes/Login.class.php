@@ -33,7 +33,7 @@ class Login {
                 $user = $this -> get_user_by_id ( $_COOKIE[ 'userId' ] ) ;
                 if ( $_COOKIE[ 'secret' ] === $this -> get_secret ( $user ) ) {
                     $_SESSION[ 'userId' ] = $_COOKIE[ 'userId' ] ;
-                    $_SESSION[ 'user' ]   = $this -> get_user_by_id ( $_SESSION[ 'userId' ] ) ;
+                   
                     return TRUE ;
                 }
             }
@@ -49,6 +49,7 @@ class Login {
 
     public function get_current_user () {
         if ( $this -> is_login () ) {
+             $_SESSION[ 'user' ]   = $this -> get_user_by_id ( $_SESSION[ 'userId' ] ) ;
             return $_SESSION[ 'user' ] ;
         }
     }

@@ -6,6 +6,6 @@ require './Includes/init.php' ;
 $cart = new Cart();
 $order = new Order();
 $login = new Login();
-$orderId = $order->create($login->getCurrentUser(), $cart);
+$orderId = $order->add($login->  get_current_user(), $cart);
 
-redirect("view-order.php?id=$orderId");
+redirect("#");

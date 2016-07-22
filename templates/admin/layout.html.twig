@@ -5,26 +5,49 @@
         <title>Shop</title>
         <meta charset="UTF-8">
         <link href="{{path}}/css/global.css" rel="stylesheet" type="text/css"/>
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     </head>
     <body>
         <div>
-            <img src="{{path}}/img/logo.png" id="pic" />
+            <img src="{{path}}/img/logo.png" id="pic"   class="img-rounded" width="345px" />
         </div>
-        <nav>           
-            <ul id="sub-menu">
-                <li><a href="{{path}}/index.php" target="_blank">HOME</a></li>
-                <li><a href="{{path}}/admin/products/index.php" target="_blank">PRODUCTS</a></li>
-                <li><a href="{{path}}/admin/products/add-product.php" target="_blank">ADD PRODUCT</a></li>
-                <li><a href="{{path}}/admin/products/category-list.php" target="_blank">CATEGORIES</a></li>
-                <li><a href="{{path}}/admin/products/add-category.php" target="_blank">ADD CATEGORIES</a></li>
-            </ul>
-        </nav>
-        <div>
-            {% block content %}
+        <nav class="navbar navbar-inverse">      
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>                        
+                    </button>
+                </div>
+                <div class="collapse navbar-collapse" id="myNavbar">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="{{path}}/index.php">Home</a></li>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">PRODUCT<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                {% for c in category %}
+                                    <li><a href="product.php?type={{c.name}}">{{c.name}}</a></li>
+                                    {% endfor %}
+                            </ul>
+                        </li>
+                        <li><a href="{{path}}/admin/products/add-product.php">ADD PRODUCT</a></li>
+                        <li><a href="{{path}}/admin/products/category-list.php">CATEGORIES</a></li>
+                        <li><a href="{{path}}/admin/products/add-category.php">ADD CATEGORY</a></li>
+                        <li><a href="{{path}}/admin/products/comment.php">READ COMMENT</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div>
+        {% block content %}
 
-            {% endblock %}    
-        </div>
-    </body>
+        {% endblock %}    
+    </div>
+</body>
 </html>
 
 {# <div>

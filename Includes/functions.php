@@ -60,3 +60,23 @@ function is_post() {
 function get_post_data($name) {
     return escape_string($_POST[$name]);
 }
+function generate_captcha_code() {
+    $code="";
+    for ( $i = 0 ; $i < 5 ; $i++  ) {
+        if(rand(0,1)){
+            $code .=rand(1, 9);
+        }
+        else {
+            $code .=chr(rand(ord('a'), ord('z')));
+        }  
+    }
+    $_SESSION['captcha']=$code;
+}
+function get_captcha_code() {
+    if(!  isset($_SESSION['captcha'])){
+        generate_captcha_code();
+    }
+    $code=$_SESSION['captcha'];
+    return $code ;
+    
+}

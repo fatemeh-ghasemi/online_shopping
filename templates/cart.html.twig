@@ -1,13 +1,13 @@
 {% extends "layout.html.twig" %}
 {% block content %}
 
-    <table border="1">
+    <table  class="table table-hover">
         <tr>
             <th>#</th>
-            <th>نام محصول</th>
-            <th>قیمت واحد</th>
-            <th>تعداد</th>
-            <th>قیمت مجموع</th>
+            <th>Product name</th>
+            <th>Unit price</th>
+            <th>Quantity</th>
+            <th>Total price</th>
         </tr>
         {% set totalprice=0 %}
 
@@ -15,32 +15,34 @@
                 <tr>
                     <td>{{loop.index}}</td>
                     <td>{{c.name}}</td>
-                    <td>{{c.price|number_format}}تومان </td>
+                    <td>{{c.price|number_format}} $ </td>
                     <td>{{c.count}}(
                         {% if c.count < c.quantity %}
-                            <a href="add2cart.php?id={{c.id}}">+</a>
-                        {% else %}
-                            + 
+                            <a href="add2cart.php?id={{c.id}}"><span class="glyphicon glyphicon-arrow-up"></span></a>
+                            {% else %}
+                            <span class="glyphicon glyphicon-arrow-up"></span>
                         {% endif %}
                         /
                         {% if c.count > 0 %}
-                            <a href="add2cart.php?id={{c.id}}&count=-1">-</a>
-                        {% else %}
-                            -
+                            <a href="add2cart.php?id={{c.id}}&count=-1"><span class="glyphicon glyphicon-arrow-down"></span></a>
+                            {% else %}
+                            <span class="glyphicon glyphicon-arrow-down"></span>
                         {% endif %}
                         )
                     </td>
-                    <td>{{(c.count * c.price)|number_format}}تومان </td>
+                    <td>{{(c.count * c.price)|number_format}} $ </td>
                 </tr>
                 {% set totalprice=totalprice +(c.count * c.price) %}
                     {% endfor %}   
                     </table> 
-                    جمع کل  :  {{ totalprice|number_format }}تومان 
+                    The price to pay : {{ totalprice|number_format }} $ 
                     <br>
                     <br>
                     {% if user is defined %}
-                        <a href="checkout.php">نهایی کردن فاکتور</a>
-                        {% else %}
-                            جهت تایید نهایی واردشوید.
+                        <a href="checkout.php">The final factor</a>
+                    {% else %}
+                        <a href="{{path}}/login.php">Please Login to pay . </a>
                     {% endif %}
                     {% endblock %}   
+                        {% block slider %}
+                        {% endblock %}

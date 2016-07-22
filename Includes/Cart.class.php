@@ -17,6 +17,8 @@ class Cart {
 
     public function get () {
         $cart0   = $this -> get_cart_array () ;
+        if(empty($cart0))
+            return ;
         $product = new Product() ;
         $cart ;
         foreach ( $cart0 as $id => $count ) {

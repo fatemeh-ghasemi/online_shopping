@@ -1,15 +1,19 @@
 {% extends "admin/layout.html.twig" %}
 {% block content %}
 
-    <table border="1">
+    <table  class="table table-hover">
         <tr>
             <th>#</th>
-            <th>نام دسته</th>
+            <th>Category name</th>
+            <th>Edite</th>
+            <th>Delete</th>
         </tr>
-        {% for c in categories %}
+        {% for c in category %}
             <tr>
                 <td>{{loop.index}}</td>
                 <td>{{c.name}}</td>
+                 <td><a href="edite_category.php?id={{c.id}}"><span class="glyphicon glyphicon-edit"></a></span></td>
+                <td><a href="delete_category.php?id={{c.id}}"><span class="glyphicon glyphicon-trash"></a></span></td>
             </tr>
         {% endfor %}   
     </table>   
